@@ -65,5 +65,29 @@ object barrilDeCombustible {
   method colisionarCon(capy) {
     capy.recolectarBasura(self)
     game.removeTickEvent("cambiarCombustible")
+  } 
+}
+
+object colillaDeCigarro {
+  var property position = game.at(7,10)
+  var property inicialPosition = position
+  
+  method impactoEnLaHuellaDeCarbono() = 120
+
+  method nombre() =  "Colilla del cigarrillo"
+  method image() = self.nombre() + "_" + "colilla de cigarrillo.png"
+
+  method moverIdaYVuelta() {
+    position = position.left(1)
+
+    if (position.equals(game.at(0,10))){
+      while (!position.equals(inicialPosition)){
+         position = position.right(1)
+      }
+    }
   }
+
+  method colisionarCon(capy) {
+    capy.recolectarBasura(self)
+  } 
 }

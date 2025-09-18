@@ -22,7 +22,13 @@ program ejemplo {
     barrilDeCombustible.cambiarCombustible()
     game.say(barrilDeCombustible, "El barril ahora tiene: " + barrilDeCombustible.combustibleActual().sufijo() )
   })
-  
+
+  //Mover la colilla de cigarrillo
+  game.onTick(100, "movimientoCigarrillo", {
+    colillaDeCigarro.moverIdaYVuelta()
+    game.say(colillaDeCigarro, "El agua se lleva la colilla")
+  })
+
   keyboard.h().onPressDo(
     {
       game.schedule(2000,{ 
